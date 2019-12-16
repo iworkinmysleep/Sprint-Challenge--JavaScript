@@ -12,7 +12,7 @@ const tyrannosaurus = {
   diet: 'carnivorous', 
   weight: '7000kg', 
   length: '12m', 
-  period: 'Late Cretaceous'
+  period: 'Late Cretaceous',
   roar: function() {
     return "RAWERSRARARWERSARARARRRR!"
   }
@@ -127,6 +127,9 @@ The zoos want to display both the scientific name and the animal name in front o
 
 */
 const displayNames = [];
+zooAnimals.forEach(element =>{
+  displayNames.push(`Name ${element.animal_name} Scientific ${element.scientific_name}.`);
+  });
 // zooAnimals.forEach((name,scientific) => 
 // console.log(displayNames);
 
@@ -136,7 +139,7 @@ The zoos need a list of all their animal's names (animal_name only) converted to
 
 */
 
-let lowerCase = zooAnimals.map((zooAnimal, index, zooAnimals) => {
+let lowCaseAnimalNames = zooAnimals.map((zooAnimal, index, zooAnimals) => {
   return zooAnimal.animal_name.toLowerCase();
 });
 console.log(lowCaseAnimalNames);
@@ -147,9 +150,7 @@ The zoos are concerned about animals with a lower population count. Using filter
 
 */
 const lowPopulationAnimals = [];
-zooAnimals.filter((animals => zooAnimals.population < 5) {
-    return lowPopulationAnimals.push(animals);
-});
+const lowPopulationAnimals = zooAnimals.filter(animal => animal.population < 5);
 console.log(lowPopulationAnimals);
 
 /* Request 4: .reduce() 
